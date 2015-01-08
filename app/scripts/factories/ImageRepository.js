@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('webdrivercssAdminpanelApp').factory('ImageRepository', function(API_HOST, API_PORT, $q, $http) {
+angular.module('webdrivercssAdminpanelApp').factory('ImageRepository', function($q, $http) {
 
     var deferred  = $q.defer(),
         method = 'GET',
-        url = 'http://' + API_HOST + ':' + API_PORT + '/api/repositories';
+        url = '/api/repositories';
 
     $http({method: method, url: url }).success(function(regression) {
 
