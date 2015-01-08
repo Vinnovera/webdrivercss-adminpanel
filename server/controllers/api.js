@@ -145,7 +145,7 @@ exports.downloadRepository = function(req, res) {
                 return res.send(404);
             }
 
-            return glob(projectPath + '/**/*.current.png', done);
+            return glob(projectPath + '/**/*.baseline.png', done);
         },
         /**
          * copy these files
@@ -187,8 +187,8 @@ exports.downloadRepository = function(req, res) {
 exports.acceptDiff = function(req, res) {
 
     var newFile = req.body.file,
-        currentFile = newFile.replace('.new.png', '.current.png'),
-        diffFile = newFile.replace('.new.png', '.diff.png'),
+        currentFile = newFile.replace('.regression.png', '.baseline.png'),
+        diffFile = newFile.replace('.regression.png', '.diff.png'),
         project = null,
         processed = 0;
 
