@@ -47,7 +47,7 @@ Per default the applications provides the following API interfaces:
     "gz": ["amoeba-example.tar.gz"],
     "repositories": {
         "amoeba-example": {
-            "images": ["contact.current.png","team.current.png","team.new.png"],
+            "images": ["contact.baseline.png","team.baseline.png","team.regression.png"],
             "diffs": ["team.diff.png"]
         }
     }
@@ -62,7 +62,7 @@ Per default the applications provides the following API interfaces:
 * **GET**   /api/repositories/:project/:file (`"Content-Type": "image/png"`)<br>
   get a current or new image from specific repository
 
-  **Example Request** *http://localhost:9000/api/repositories/amoeba-example/contact.current.png*
+  **Example Request** *http://localhost:9000/api/repositories/amoeba-example/contact.baseline.png*
 
 * **GET**   /api/repositories/:project/diff/:diff (`"Content-Type": "image/png"`)<br>
   get diff image of specific repository
@@ -94,7 +94,7 @@ repository to the WebdriverCSS - Adminpanel application. Here is an example how 
 image repositories created with WebdriverCSS:
 
 ```js
-var WebdriverIO = require('webdriverjs'),
+var WebdriverIO = require('webdriverio'),
     WebdriverCSS = require('webdrivercss');
 
 // init webdriverio
@@ -116,6 +116,7 @@ client
 
     .url('http://example.com')
     .webdrivercss('exampleTest', {
+        name: 'homepage',
         elem: '#section'
     })
 
